@@ -1,5 +1,6 @@
 package com.sagarandcompany.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,6 +9,9 @@ import java.util.Map;
 
 @RestController
 public class HomeController {
+    @Autowired
+    NotificationService notificationService;
+
     @GetMapping("/home/get")
     public Map<String, String> get() {
         Map<String, String> map = new HashMap<>();
@@ -15,6 +19,7 @@ public class HomeController {
         map.put("age", "28");
         map.put("email", "sagarmal624@gmail.com");
         map.put("address", "Gurgaon");
+        map.put("template", notificationService.template());
         return map;
     }
 }
