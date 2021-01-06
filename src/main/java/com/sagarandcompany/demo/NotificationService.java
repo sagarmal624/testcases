@@ -1,18 +1,24 @@
 package com.sagarandcompany.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.Context;
-import org.thymeleaf.spring5.SpringTemplateEngine;
+
+import javax.mail.internet.MimeMessage;
 
 @Service
 public class NotificationService {
     @Autowired
-    SpringTemplateEngine springTemplateEngine;
+    ITemplateEngine springTemplateEngine;
 
-    public String template() {
+    public MimeMessage template() {
         Context context = new Context();
+        JavaMailSender javaMailSender=new JavaMailSenderImpl();
         context.setVariable("test", "test");
-        return springTemplateEngine.process("index", context);
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        return mimeMessage;
     }
 }

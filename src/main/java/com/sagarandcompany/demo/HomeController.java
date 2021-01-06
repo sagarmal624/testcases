@@ -19,7 +19,6 @@ public class HomeController {
         map.put("age", "28");
         map.put("email", "sagarmal624@gmail.com");
         map.put("address", "Gurgaon");
-        map.put("template", notificationService.template());
         return map;
     }
 }
