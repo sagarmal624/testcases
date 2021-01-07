@@ -21,4 +21,13 @@ public class HomeController {
         map.put("address", "HYD");
         return map;
     }
+    @GetMapping("/home/person/get")
+    public Map<String, String> personget() {
+        Map<String, String> map = new HashMap<>();
+        map.put("name", "sagar");
+        map.put("age", "100");
+        map.put("email", "sagarmal624@gmail.com");
+        map.put("address", "Jaipur");
+        return map;
+    }
 }
