@@ -15,10 +15,10 @@ public class HomeController {
     @GetMapping("/home/get")
     public Map<String, String> get() {
         Map<String, String> map = new HashMap<>();
-        map.put("name", "sagar");
+        map.put("name", "vandana");
         map.put("age", "28");
         map.put("email", "sagarmal624@gmail.com");
-        map.put("address", "Gurgaon");
+        map.put("address", "HYD");
         return map;
     }
 }
